@@ -1,5 +1,6 @@
 package org.wecancodeit;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,31 +8,66 @@ public class VirtualPetShelter {
 
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 
-	public int getHungerForAll() {
-		// TODO Auto-generated method stub
-		return 0;
+	// find a pet - return a specific pet given it's name (pet descriptions?)
+
+	public VirtualPet findPet(String petName) {
+		return pets.get(petName);
 	}
 
-	public void giveWaterAll() {
-
-	}
-
-	public int getThirstAll() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void petRoster() {
-
-		System.out.println("The pets are " + pets);
-	}
-
+	// allow intakes (add pet)
 	public void add(VirtualPet petToAdd) {
 		pets.put(petToAdd.getPetName(), petToAdd);
 	}
 
-	public VirtualPet findPet(String petName) {
-
-		return pets.get(petName);
+	// allow adoption(remove pet)
+	public void remove(VirtualPet petToRemove) {
+		pets.remove(petToRemove.getPetName(), petToRemove);
 	}
+
+	// play with one pet
+	public int getBoredomForPet(String petToPlayWith) {
+		VirtualPet playWithPet = pets.get(petToPlayWith); // calls to my VP class
+		return playWithPet.getBoredom();
+	}
+
+	public void playWithPet(String petToPlayWith) {
+		VirtualPet playWithPet = pets.get(petToPlayWith);
+		playWithPet.play(); // calls play on VP
+
+	}
+
+	// get all pets - return a collection of all the pets in the shelter
+	public Collection<VirtualPet> getAllPets() {
+		return pets.values();
+
+	}
+
+	// feed all pets
+	public void feedAllPets() {
+		for (VirtualPet hungryPet : getAllPets()) {
+			hungryPet.feed();
+		}
+	}
+
+	// water all pets
+	public void waterAllPets() {
+		for (VirtualPet thirstyPet : getAllPets()) {
+			thirstyPet.giveWater();
+		}
+	}
+
+	// ticks all pets
+	public void tickAllPets() {
+		for (VirtualPet shelterPet : getAllPets()) {
+			shelterPet.tick();
+		}
+
+	}
+	//clean up after all pets
+	public void cleanAllPets() {
+		for (VirtualPet poopyPet : getAllPets()) {
+			poopyPet.cleanPoop();
+		}
+	}
+
 }

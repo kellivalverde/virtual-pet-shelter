@@ -32,9 +32,6 @@ public class VirtualPet {
 	}
 	
 	
-	
-	
-	
 	// getters
 
 	public String getPetName() {
@@ -63,7 +60,7 @@ public class VirtualPet {
 	}
 
 	public void giveWater() {
-		thirst = -1;
+		thirst = 0;
 	}
 
 	// poop level
@@ -72,7 +69,7 @@ public class VirtualPet {
 	}
 
 	public void cleanPoop() {
-		poop = -1;
+		poop = 0;
 	}
 
 	// boredom
