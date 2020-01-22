@@ -1,60 +1,46 @@
-# Virtual Pet Shelter
+# Bank Teller
 
-Create a virtual pet. Bonus points if it becomes a fad!
+Objective
+Design a banking application that handles standard interaction that a user would have with their bank.
 
-## Details
+Design a Account class that will handle instances of a bank account.
+Design a Bank class that will house multiple accounts the user may have.
+Design a BankApplication (with a main method) to build a user interface where your user can access their accounts and perform standard transactions.
+Tasks
 
-We’re going to use TDD to drive the creation of an application that simulates you taking care of the pets in a shelter.
+The Account Class should have:
 
-Include a game loop in this project, too. It should query the user, then call the appropriate method(s) on VirtualPetShelter and/or VirtualPet. In general, your VirtualPetApp should talk to your VirtualPetShelter, and your VirtualPetShelter should talk to your VirtualPet. Try to avoid VirtualPetApp talking directly to VirtualPet instances, apart from accessing basic information about pets (via get* methods).
+3 instance variables to handle String accountNumber, String accountType, and double accountBalance (Note the accountNumber will be a unique identifier)
+Create a constructor that accepts input for your three instance variables
+Create accessor methods for each instance variable in Account
+Create a deposit method for adding funds
+Create a withdrawal method for retrieving funds.
+Create a checkAccountBalance method to show available funds
+The Bank Class should have:
 
-## Required Tasks to be completed in the order you feel is necessary
+A Map called accounts
+A getAllAccounts() method to return a Collection<Account> containing all accounts
+An openNewAccount() to add an Account to accounts
+A getAccount(String accountNumber) to get access a particular Account
+A closeAccount(String accountNumber) to close a particular Account
+Hint: This Class operates like a bank and keeps track of multiple bank accounts.
 
-### VirtualPetShelterApp class
+The BankingApp should have:
 
-Create a main method that…
-implements a game loop.
-asks for user input.
-writes output to the console.
-calls VirtualPetShelter’s tick method after each interaction
-Available user interface actions should include (at minimum)…
-feeding all the pets
-watering all the pets
-playing with an individual pet, which should display a list of pet names and descriptions, allowing a user to select one
-allow adoption of a pet, which should display a list of pet names and descriptions, allowing a user to select one
-allow intake of a pet, prompting the user for the pet’s information, requiring the user to (at minimum) specify name and description
-(Hint: you can use tab characters (“\t”) to align console output in columns.)
+A Bank object
+Two unique Account objects properly instantiated
+Add your Accounts to your Bank objects Map
+Set up a UI to give the user the ability to interact with the application:
+Display Accounts and their info.
+Display a menu to give your users choices to:
+Make a deposit to an Account
+Make a withdrawal from an Account
+Check the balance on an Account
+Close an Account
+Exit the application
+Accept input from the users choice and display the appropriate response
+Include a loop so the user can continue to manipulate accounts
+Stretch Task #1: Include a security system that requires the user to enter a correct PIN (Personal Identification Number) before they can access the application. (Think about the most appropriate place to house this information)
 
-### VirtualPetShelter class
+Stretch Task #2: Refuse to close an account that still has remaining funds. Let the user know they can’t remove an account that has funds remaining and prompt them to make another choice.
 
-include appropriate instance variable(s) to store the pets who reside at the shelter
-include methods that:
-return a Collection of all of the pets in the shelter
-return a specific VirtualPet given its name
-allow intake of a homeless pet
-allow adoption of a homeless pet
-feed all of the pets in the shelter
-water all of the pets in the shelter
-plays (or performs some other interaction(s)) with an individual pet in the shelter
-include a tick method that calls the tick method for each of the pets in the shelter, updating their needs
-
-### VirtualPet class
-
-In addition to the requirements from last week’s project:
-
-include instance variables representing:
-name (from the above example, this might be “Tommy”)
-description (from the above example, this might be “smells like a Stargazer lily fresh with morning dew”)
-include a constructor that accepts a name and description
-include a constructor that, in addition to name and description, accepts default values for the pet’s attributes (hunger, boredom, etc)
-Do not include a default (zero arguments) constructor.
-
-### Grading
-
-Here is the rubric.
-
-### Stretch Tasks
-
-Consider any stretch tasks from last week’s project that you did not attempt.
-Keep track of the cleanliness of individual pets’ cages and offer an option in the user interface to clean pet cages
-DNA! In order to give your pets individual character, include as part of each pet’s state one or more multipliers for needs so that one pet may become hungrier/thirstier/more bored slower/faster than another pet. (Tip: you could create a class to encapsulate this.)
