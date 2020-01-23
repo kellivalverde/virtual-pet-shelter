@@ -16,7 +16,7 @@ public class VirtualPetShelterApp {
 		printMenu();
 
 		// default starter pets
-		VirtualPet pet1 = new VirtualPet("MeiLing", "big, fat, fluffy cat", 0, 0, 0, 0);
+		VirtualPet pet1 = new VirtualPet("Cleo", "big, fat, fluffy cat", 0, 0, 0, 0);
 		VirtualPet pet2 = new VirtualPet("Rigby", "skinny sleek black cat", 0, 0, 0, 0);
 		VirtualPet pet3 = new VirtualPet("Oliver", "scruffy old gray cat", 0, 0, 0, 0);
 
