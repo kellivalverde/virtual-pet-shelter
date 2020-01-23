@@ -55,7 +55,14 @@ public class VirtualPetShelter {
 			thirstyPet.giveWater();
 		}
 	}
-
+	
+	//clean up after all pets
+		public void cleanAllPets() {
+			for (VirtualPet poopyPet : getAllPets()) {
+				poopyPet.cleanPoop();
+			}
+		}
+	
 	// ticks all pets
 	public void tickAllPets() {
 		for (VirtualPet shelterPet : getAllPets()) {
@@ -63,11 +70,6 @@ public class VirtualPetShelter {
 		}
 
 	}
-	//clean up after all pets
-	public void cleanAllPets() {
-		for (VirtualPet poopyPet : getAllPets()) {
-			poopyPet.cleanPoop();
-		}
-	}
+	
 
 }

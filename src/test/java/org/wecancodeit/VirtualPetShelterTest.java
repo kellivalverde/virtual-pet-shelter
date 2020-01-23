@@ -108,7 +108,7 @@ public class VirtualPetShelterTest {
 		assertTrue(afterFeed2 <= beforeFeed2);
 		assertTrue(afterFeed3 <= beforeFeed3);
 	}
-	
+
 	// water all pets
 	@Test
 	public void shouldWaterAllPets() {
@@ -132,31 +132,29 @@ public class VirtualPetShelterTest {
 	}
 
 	// clean up after all pets
-		@Test
-		public void shouldCleanUpAfterAllPets() {
-			underTest.add(pet1);
-			underTest.add(pet2);
-			underTest.add(pet3);
+	@Test
+	public void shouldCleanUpAfterAllPets() {
+		underTest.add(pet1);
+		underTest.add(pet2);
+		underTest.add(pet3);
 
-			int beforeClean1 = pet1.getPoop();
-			int beforeClean2 = pet2.getPoop();
-			int beforeClean3 = pet3.getPoop();
+		int beforeClean1 = pet1.getPoop();
+		int beforeClean2 = pet2.getPoop();
+		int beforeClean3 = pet3.getPoop();
 
-			underTest.cleanAllPets();
+		underTest.cleanAllPets();
 
-			int afterClean1 = pet1.getPoop();
-			int afterClean2 = pet2.getPoop();
-			int afterClean3 = pet3.getPoop();
+		int afterClean1 = pet1.getPoop();
+		int afterClean2 = pet2.getPoop();
+		int afterClean3 = pet3.getPoop();
 
-			assertTrue(afterClean1 <= beforeClean1);
-			assertTrue(afterClean2 <= beforeClean2);
-			assertTrue(afterClean3 <= beforeClean3);
-		}
+		assertTrue(afterClean1 <= beforeClean1);
+		assertTrue(afterClean2 <= beforeClean2);
+		assertTrue(afterClean3 <= beforeClean3);
+	}
 
-	
-	
 	// calls tick() method after each loop - all stats increase
-	
+
 	@Test
 	public void shouldIncreaseStatsOfAllPetsBy1() {
 		underTest.add(pet1);
@@ -177,9 +175,5 @@ public class VirtualPetShelterTest {
 		assertTrue(afterTick2 >= beforeTick2);
 		assertTrue(afterTick3 >= beforeTick3);
 	}
-	
-	
+
 }
-
-
-
