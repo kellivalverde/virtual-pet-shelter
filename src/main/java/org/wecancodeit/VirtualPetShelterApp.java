@@ -16,19 +16,19 @@ public class VirtualPetShelterApp {
 		printMenu();
 
 		// default starter pets
-		VirtualPet pet1 = new VirtualPet("MeiLing", "big, fat, fluffy cat", 0, 0, 0, 2);
-		VirtualPet pet2 = new VirtualPet("Rigby", "skinny sleek black cat", 3, 0, 0, 0);
-		VirtualPet pet3 = new VirtualPet("Oliver", "scruffy old gray cat", 0, 0, 1, 0);
+		VirtualPet pet1 = new VirtualPet("MeiLing", "big, fat, fluffy cat", 0, 0, 0, 0);
+		VirtualPet pet2 = new VirtualPet("Rigby", "skinny sleek black cat", 0, 0, 0, 0);
+		VirtualPet pet3 = new VirtualPet("Oliver", "scruffy old gray cat", 0, 0, 0, 0);
 
 		myPets.add(pet1);
 		myPets.add(pet2);
 		myPets.add(pet3);
-		
+
 // loop start
 
 		while (true) {
 
-			System.out.println("What would you like to do?");
+			System.out.println("\nWhat would you like to do?");
 			String menuOption = input.nextLine();
 
 			if (menuOption.contentEquals("help")) {
@@ -38,22 +38,19 @@ public class VirtualPetShelterApp {
 			} else if (menuOption.contentEquals("1")) {
 
 				System.out.println("\nStatus for all pets: ");
-				
-				System.out.println("Name \t Hunger \t Thirst \t Boredom" );
+
+				System.out.println("Name \t | Hunger| Thirst|Boredom| Poop");
+				System.out.println("-----------------------------------------");
 				// get status for all pets
 				Collection<VirtualPet> petStats = myPets.getAllPets();
 				// Collection is a type like String or int, etc.
 				for (VirtualPet currentPet : petStats) {
-					
-					
-					
-					
-					System.out.println(currentPet.getPetName());
+
+					System.out.println(currentPet.getPetName() + "\t | " + currentPet.getHunger() + "\t | "
+							+ currentPet.getThirst() + "\t | " + currentPet.getBoredom() + "\t | "
+							+ currentPet.getPoop());
+
 				}
-				
-				
-				
-				
 
 			} else if (menuOption.contains("2")) {
 
@@ -78,7 +75,9 @@ public class VirtualPetShelterApp {
 
 				String selectedPet = input.nextLine();
 				myPets.playWithPet(selectedPet);
-
+				System.out.println(selectedPet + " loves to play! Have fun!");
+				
+				
 			} else if (menuOption.contentEquals("6")) {
 				System.out.println("It's getting stinky in here. Time to scoop the poop!");
 				myPets.cleanAllPets();
@@ -108,12 +107,13 @@ public class VirtualPetShelterApp {
 				break;
 			} else {
 				System.out.println("What?! Say that again.");
+				System.out.println("--- To see menu again, type \"help\". ---");
 			}
 
 			myPets.tickAllPets();
 
-			System.out.println("Press enter to do another action.");
-			input.nextLine();
+//			System.out.println("\nPress enter to do another action.");
+//			input.nextLine();
 
 		} // loop end
 
@@ -122,7 +122,7 @@ public class VirtualPetShelterApp {
 	}
 
 	private static void printMenu() {
-		System.out.println("1: Check status for all pets");
+		System.out.println("1: Check status for all pets. (Hint: 0 = satisfied)");
 		System.out.println("2: Print a pet roster");
 		System.out.println("3: Feed all the pets");
 		System.out.println("4: Give all the pets water");
@@ -132,7 +132,7 @@ public class VirtualPetShelterApp {
 		System.out.println("8: Admit a new pet");
 		System.out.println("9: Quit");
 
-		System.out.println("To see menu again, type \"help\".");
+		System.out.println("--- To see menu again, type \"help\". ---");
 
 	}
 
