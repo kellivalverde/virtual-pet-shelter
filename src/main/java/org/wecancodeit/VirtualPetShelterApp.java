@@ -66,7 +66,7 @@ public class VirtualPetShelterApp {
 				myPets.feedAllPets();
 
 			} else if (menuOption.contentEquals("4")) {
-				System.out.println("Who's thirsty? Here's some water.");
+				System.out.println("Who's thirsty? You gave water to all pets.");
 				myPets.waterAllPets();
 
 			} else if (menuOption.contentEquals("5")) {
