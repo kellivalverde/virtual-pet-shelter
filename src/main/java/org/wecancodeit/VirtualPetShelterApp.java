@@ -25,7 +25,8 @@ public class VirtualPetShelterApp {
 		myPets.add(pet3);
 
 // loop start
-
+// could be a switch/case instead
+		
 		while (true) {
 
 			System.out.println("\nWhat would you like to do?");
@@ -58,7 +59,7 @@ public class VirtualPetShelterApp {
 				// Collection is a type like String or int, etc.
 
 				for (VirtualPet currentPet : petRoster) {
-					System.out.println(currentPet.getPetName());
+					System.out.println(currentPet.getPetName()); // add description
 				}
 
 			} else if (menuOption.contentEquals("3")) {
@@ -74,7 +75,7 @@ public class VirtualPetShelterApp {
 				System.out.println("Which pet would you like to play with?");
 
 				String selectedPet = input.nextLine();
-				myPets.playWithPet(selectedPet);
+				myPets.playWithPet(selectedPet);  // to lower case - substring capitalize
 				System.out.println(selectedPet + " loves to play! Have fun!");
 				
 				
@@ -95,7 +96,7 @@ public class VirtualPetShelterApp {
 				String petName = input.nextLine();
 
 				System.out.println("description:");
-				String petDescription = input.nextLine();
+				String petDescription = input.nextLine();   // to lower case - substring capitalize
 
 				VirtualPet petToIntake = new VirtualPet(petName, petDescription);
 				myPets.add(petToIntake);

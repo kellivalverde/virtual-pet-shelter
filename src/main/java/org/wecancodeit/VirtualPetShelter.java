@@ -1,4 +1,5 @@
 package org.wecancodeit;
+//Mod 3: Virtual Pet Shelter
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,6 +11,9 @@ public class VirtualPetShelter {
 
 	// find a pet - return a specific pet given it's name (pet descriptions?)
 
+	//add an in-shelter || not in-shelter field in the map and gather in-maps (not in map = hidden)
+	// add unique key (string pet ID number)
+	
 	public VirtualPet findPet(String petName) {
 		return pets.get(petName);
 	}
@@ -28,6 +32,9 @@ public class VirtualPetShelter {
 	public int getBoredomForPet(String petToPlayWith) {
 		VirtualPet playWithPet = pets.get(petToPlayWith); // calls to my VP class
 		return playWithPet.getBoredom();
+
+		// add if/else or switch/case activities
+
 	}
 
 	public void playWithPet(String petToPlayWith) {
@@ -36,10 +43,14 @@ public class VirtualPetShelter {
 
 	}
 
-	// get all pets - return a collection of all the pets in the shelter
+	// get all pets - Roster
 	public Collection<VirtualPet> getAllPets() {
 		return pets.values();
-
+		
+		//change key from the pet's name to a number?
+		// Could add keys for each pet so we could see past pets	
+		// totalKeys++;
+		// petKey = totalKeys();
 	}
 
 	// feed all pets
@@ -55,14 +66,14 @@ public class VirtualPetShelter {
 			thirstyPet.giveWater();
 		}
 	}
-	
-	//clean up after all pets
-		public void cleanAllPets() {
-			for (VirtualPet poopyPet : getAllPets()) {
-				poopyPet.cleanPoop();
-			}
+
+	// clean up after all pets
+	public void cleanAllPets() {
+		for (VirtualPet poopyPet : getAllPets()) {
+			poopyPet.cleanPoop();
 		}
-	
+	}
+
 	// ticks all pets
 	public void tickAllPets() {
 		for (VirtualPet shelterPet : getAllPets()) {
@@ -70,6 +81,5 @@ public class VirtualPetShelter {
 		}
 
 	}
-	
 
 }

@@ -1,54 +1,88 @@
-# Virtual Pet Shelter
+# Virtual Pets AMOK!
 
-## Objective
-So, you have some experience under your belt in the care and feeding of a virtual pet. It’s time to share that with the community! Time to volunteer!
+Oh noes! Your virtual pet shelter has become a mess!
 
-We’re going to use TDD to drive the creation of an application that simulates you taking care of the pets in a shelter.
+Food and water and playtime aren’t enough anymore. The virtual cats are chasing the virtual dogs. The virtual organic animals are letting nature take its course in every corner, while the virtual robotic pets are getting rusty. Let’s just say things are piling up.
 
-Include a game loop in this project, too. It should query the user, then call the appropriate method(s) on VirtualPetShelter and/or VirtualPet. In general, your VirtualPetApp should talk to your VirtualPetShelter, and your VirtualPetShelter should talk to your VirtualPet. Try to avoid VirtualPetApp talking directly to VirtualPet instances, apart from accessing basic information about pets (via get* methods).
+Thanks to the generosity of donors, leashes aren’t an issue, so you can walk all of your virtual dogs at once. This is great, since they are less like to soil their cages if walked regularly. Did I mention dogs are in cages now? Yeah, it keeps the cats from chasing them. Better keep those cages clean.
 
-## Required Tasks to be completed in the order you feel is necessary
-### VirtualPetShelterApp class
+Cats hang out in a communal area and use a common litter box. Don’t even bother trying to walk them. What happens if that litter box overflows? Does it reduce pets’ health?
 
-Create a main method that…
-implements a game loop.
-asks for user input.
-writes output to the console.
-calls VirtualPetShelter’s tick method after each interaction
-Available user interface actions should include (at minimum)…
-feeding all the pets
-watering all the pets
-playing with an individual pet, which should display a list of pet names and descriptions, allowing a user to select one
-allow adoption of a pet, which should display a list of pet names and descriptions, allowing a user to select one
-allow intake of a pet, prompting the user for the pet’s information, requiring the user to (at minimum) specify name and description
-(Hint: you can use tab characters (“\t”) to align console output in columns.)
+We’re introducing a health attribute for pets. Organic pets have their health decreased by unclean circumstances, and by thirst or hunger growing too high. Robotic pets only lose health if they’re not oiled regularly. All pets lose health if their happiness drops too low.
 
-### VirtualPetShelter class
+## Setup
 
-include appropriate instance variable(s) to store the pets who reside at the shelter
-include methods that:
-return a Collection of all of the pets in the shelter
-return a specific VirtualPet given its name
-allow intake of a homeless pet
-allow adoption of a homeless pet
-feed all of the pets in the shelter
-water all of the pets in the shelter
-plays (or performs some other interaction(s)) with an individual pet in the shelter
-include a tick method that calls the tick method for each of the pets in the shelter, updating their needs
-VirtualPet class
+You can copy your code from the previous project to use as a starter, or start from scratch.
 
-### In addition to the requirements from last week’s project:
+Create a Java project in Eclipse named virtual-pets-amok.
+Create a README.md file in your project folder to describe what you’ve done with your project. No fancy formatting is necessary. Just separate paragraphs with an empty line. (If you’d like to learn more about Markdown formatting, check out the Github Markdown Guide.)
+Create a GitHub repository also named virtual-pets-amok and set it up so that you can push your code there from your Eclipse project. Do this now. It’s the least fun part, so just get it out of the way.
 
-include instance variables representing:
-name (from the above example, this might be “Tommy”)
-description (from the above example, this might be “smells like a Stargazer lily fresh with morning dew”)
-include a constructor that accepts a name and description
-include a constructor that, in addition to name and description, accepts default values for the pet’s attributes (hunger, boredom, etc)
-Do not include a default (zero arguments) constructor.
+## Required Tasks
 
+### General
 
-### Stretch Tasks
+- introduce ways to track:
+- cage cleanliness for organic dogs
+- shelter litter box cleanliness for organic cats
+- oil/maintenance level for robot animals
 
-Consider any stretch tasks from last week’s project that you did not attempt.
-Keep track of the cleanliness of individual pets’ cages and offer an option in the user interface to clean pet cages
-DNA! In order to give your pets individual character, include as part of each pet’s state one or more multipliers for needs so that one pet may become hungrier/thirstier/more bored slower/faster than another pet. (Tip: you could create a class to encapsulate this.)
+### All classes
+
+- Encapsulate all instance variables.
+- Assign appropriate visibility modifiers to methods only used internally by a class or within a class hierarchy.
+
+## VirtualPet class and related subclasses/interfaces
+
+In addition to the last project’s requirements:
+
+- create a model that allows for dogs and cats, either of which may be robotic
+- introduce an attribute (instance variable) representing overall health that is updated as a result of other attributes moving in a negative or positive direction, influencing happiness
+- introduce methods that allow for:
+- oiling robotic pets
+- walking dogs, decreasing the likelihood that organic dogs will soil their cages, while increasing happiness in all dogs
+
+- do not allow:
+  - feeding/watering robotic pets
+  - oiling organic pets
+- modify the tick method to return a value indicating the amount of waste a pet creates, which should contribute to either (optionally, create accessor methods to retrieve these values instead):
+  - amount of waste in the litter box
+  - amount of waste in an individual dog cage
+
+## VirtualPetShelter class
+
+In addition to the last project’s requirements:
+
+- introduce methods that allow for:
+- oiling/maintaining all robotic pets
+- cleaning dog cages
+- emptying the litterbox
+- modify existing methods to only feed/water pets that are not robotic
+
+## VirtualPetShelterApp class
+
+In addition to the last project’s requirements:
+
+- add options to:
+- walk all dogs
+- clean dog cages
+- clean the shelter litterbox
+- oil all robotic pets
+
+## Tips
+
+- Remember: don’t get caught up in the user interface at first. Focus on shelter/pet behavior. Try to get one thing working at a time.
+- Try creating tests to verify pet behavior, limiting your immediate goal to something small.
+
+Grading
+
+Here is the rubric. https://wecancodeit.github.io/java-exercises/virtual-pets-amok/rubric.html
+
+## Stretch Tasks
+
+- Allow for other types of pets. Are they caged? What maintenance do they require?
+- Allow an option for giving treats to pets. What sorts of treats do different pets like?
+- introduce a Cage class for each dog, where cleanliness is tracked, keying these on the dog to which each is assigned (to use a VirtualPet as a key in a HashMap, you should implement hashCode and equals)
+- Herd your cats.
+
+(Note: the author is aware that it would not be a wise decision to allow all cats in a shelter to share a litterbox. They’re virtual pets, so virtually disease-free.)

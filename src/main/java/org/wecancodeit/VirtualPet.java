@@ -9,6 +9,7 @@ public class VirtualPet {
 	private String petName;
 	private String petDescription;
 
+	// add limits to pet stats
 	
 
 	public VirtualPet(String petName) {
